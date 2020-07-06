@@ -1,0 +1,25 @@
+version: '3'
+services:
+  ganache:
+    build: ganache
+    image: ganache:chainlink
+    container_name: ganache-cli
+    tty: true
+    volumes:
+      - ./ganache/src:/usr/src/app
+      - ./ganache/db:/var/ganache
+    ports: 
+      - "8545:8545"
+  truffe:
+    build: truffle
+    image: truffle
+    container_name: truffle
+    tty: true
+    volumes:
+      - ./truffle/src:/usr/app/src
+    ports: 
+      - "3000:3000"
+networks:
+  default:
+    external:
+      name: dapp_dev_01
