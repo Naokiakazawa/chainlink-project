@@ -6,7 +6,6 @@ services:
     container_name: ganache-cli
     tty: true
     volumes:
-      - ./ganache/src:/usr/src/app
       - ./ganache/db:/var/ganache
     ports: 
       - "8545:8545"
@@ -16,7 +15,7 @@ services:
     container_name: truffle
     tty: true
     volumes:
-      - ./truffle/src:/usr/app/src
+      - ./truffle/src:/usr/src
     ports: 
       - "3000:3000"
 networks:
